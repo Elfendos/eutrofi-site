@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eutrofi — Gizlilik Politikası</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #1c1c1e; background: #fff; }
+  h1 { font-size: 28px; }
+  h2 { font-size: 20px; margin-top: 32px; }
+  p, li { font-size: 16px; }
+  li { margin-bottom: 8px; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid #e5e5ea; }
+  .updated { color: #6e6e73; font-size: 14px; margin-bottom: 32px; }
+  a { color: #F5661F; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #101315; color: #f2f2f7; }
+    th, td { border-bottom-color: #2c2f33; }
+    .updated { color: #9a9aa0; }
+  }
+</style>
+</head>
+<body>
+<h1>Eutrofi Gizlilik Politikası</h1>
+<p class="updated">Son güncelleme: 11 Ekim 2026</p>
+
+<p>Eutrofi, yediğiniz ve içtiğiniz şeyleri fotoğrafla ya da yazarak kaydedip kalori ve makro besin (protein, karbonhidrat, yağ) takibi yapmanızı sağlayan bir iOS uygulamasıdır. Bu sayfa, uygulamanın hangi verileri topladığını, nerede sakladığını, kimlerle paylaştığını ve bu veriler üzerindeki haklarınızı açıklar.</p>
+
+<h2>Veri sorumlusu</h2>
+<p>Uygulamanın geliştiricisi ve veri sorumlusu Hakan Görgülü'dür. İletişim: <a href="mailto:gorgulu.hakan@gmail.com">gorgulu.hakan@gmail.com</a></p>
+
+<h2>Hangi veriler toplanır ve nerede saklanır?</h2>
+<table>
+  <tr><th>Veri</th><th>Ne için</th><th>Nerede</th></tr>
+  <tr>
+    <td>Hesap bilgileri: e-posta adresi, giriş yöntemi (e-posta ve şifre, Apple ya da Google), giriş hesabınızdaki ad ve profil fotoğrafı adresi</td>
+    <td>Giriş yapmanız, hesabınızın doğrulanması, şifre sıfırlama</td>
+    <td>Google Firebase Authentication. Şifreniz bizim tarafımızdan görülemez.</td>
+  </tr>
+  <tr>
+    <td>Beslenme kayıtları, favori yemekler, antrenman girişleri ve yemek fotoğrafları</td>
+    <td>Günlük takibin kendisi</td>
+    <td>Cihazınızda ve kendi Apple hesabınızın özel iCloud (CloudKit) alanında. Geliştiricinin bu alana erişimi yoktur.</td>
+  </tr>
+  <tr>
+    <td>Kişisel bilgiler: isim, yaş, boy, kilo, hedef kilo, cinsiyet, hedefler (hepsi isteğe bağlı)</td>
+    <td>Günlük hedeflerinizin hesaplanması, selamlama</td>
+    <td>Cihazınızda</td>
+  </tr>
+  <tr>
+    <td>Analiz için gönderdiğiniz yemek fotoğrafları, yazılı açıklamalar ve notlar</td>
+    <td>Yemeğin tanınması ve besin değerlerinin tahmini</td>
+    <td>Anthropic'in Claude API'sine gönderilir (aşağıya bakın)</td>
+  </tr>
+  <tr>
+    <td>Haftalık koç özeti için son 7 günün günlük toplamları (kalori, makrolar, hedef) — yalnızca Premium'da</td>
+    <td>Kişisel haftalık özetin yazılması</td>
+    <td>Anthropic'in Claude API'sine gönderilir</td>
+  </tr>
+  <tr>
+    <td>Arkadaşlık verileri: görünen adınız, profil fotoğrafınızın küçük bir kopyası, davet kodunuz, arkadaşlık bağlantılarınız, gönderilen tebrikler</td>
+    <td>Arkadaş ekleme ve arkadaş şeridi</td>
+    <td>Google Firebase (Cloud Firestore)</td>
+  </tr>
+  <tr>
+    <td>Günün özeti: o günkü toplam kalori ve makrolar, kalori hedefi, seri sayısı, öğünlerin adı, kalorisi ve saati (fotoğraf gönderilmez)</td>
+    <td>Arkadaşlarınızın gününüzü görebilmesi</td>
+    <td>Google Firebase (Cloud Firestore). Profil'deki paylaşım anahtarını kapatırsanız yazılmaz ve o günün özeti silinir.</td>
+  </tr>
+  <tr>
+    <td>Davet kaydı: hesabınızın hangi davet koduyla açıldığı ve tarihleri</td>
+    <td>Davet edene ek analiz hakkı tanımlanması</td>
+    <td>Google Firebase (Cloud Firestore)</td>
+  </tr>
+  <tr>
+    <td>Sağlık verisi: Apple Sağlık'taki günlük aktif yakılan kalori (izin verirseniz)</td>
+    <td>Yakılan kalorinin günlük hesaba eklenmesi</td>
+    <td>Yalnızca cihazınızda kullanılır, hiçbir yere gönderilmez. Uygulama Sağlık'a veri yazmaz.</td>
+  </tr>
+  <tr>
+    <td>Abonelik durumu</td>
+    <td>Premium özelliklerin açılması</td>
+    <td>Satın alma Apple tarafından yürütülür. Kart ya da ödeme bilgileriniz bize ulaşmaz.</td>
+  </tr>
+  <tr>
+    <td>Teşhis kayıtları: hata kodu, uygulama ve iOS sürümü, cihaz modeli, rastgele üretilmiş anonim bir kurulum kimliği</td>
+    <td>Hataların bulunup düzeltilmesi</td>
+    <td>Apple CloudKit üzerinde geliştiriciye ait bir veritabanı. İsim, e-posta, fotoğraf ya da yemek içeriği içermez.</td>
+  </tr>
+</table>
+
+<h2>Kimler neyi görebilir?</h2>
+<ul>
+  <li><strong>Arkadaşlarınız:</strong> karşılıklı onayla arkadaş olduğunuz kişiler görünen adınızı, profil fotoğrafınızı ve paylaşım açıksa günün özetini görür.</li>
+  <li><strong>Diğer Eutrofi kullanıcıları:</strong> davet kodunuzu giren bir kullanıcı, arkadaşlık isteği gönderebilmek için görünen adınızı ve profil fotoğrafınızı görür. Günün özeti arkadaş olmayanlara gösterilmez.</li>
+  <li><strong>Geliştirici:</strong> Firebase'de tutulan verilere (hesap, arkadaşlık, günün özeti, davet kaydı) teknik olarak erişebilir. iCloud'unuzdaki kayıtlara ve fotoğraflara erişemez.</li>
+</ul>
+
+<h2>Üçüncü taraflar</h2>
+<ul>
+  <li><strong>Anthropic (Claude API):</strong> analiz için gönderdiğiniz fotoğraf ve metinler ile koç özeti için günlük toplamlar. Bu isteklerde adınız ya da e-posta adresiniz gönderilmez. <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic gizlilik politikası</a></li>
+  <li><strong>Google (Firebase Authentication ve Cloud Firestore):</strong> hesap ve arkadaşlık verileri. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase gizlilik bilgileri</a></li>
+  <li><strong>Apple (iCloud, Sağlık, App Store):</strong> kayıtlarınızın eşitlenmesi, sağlık verisinin okunması ve abonelik.</li>
+  <li><strong>Brevo:</strong> doğrulama ve şifre sıfırlama e-postalarının gönderimi; yalnızca e-posta adresiniz iletilir.</li>
+</ul>
+<p>Bu hizmet sağlayıcıların sunucuları Türkiye dışında bulunabilir; verileriniz bu kapsamda yurt dışına aktarılır. Reklam amacıyla hiçbir üçüncü tarafla veri paylaşılmaz, veri satılmaz, uygulamalar ve siteler arasında kullanıcı takibi yapılmaz. Uygulamada reklam ve analitik izleme aracı yoktur.</p>
+
+<h2>Yapay zekâ tahminleri hakkında</h2>
+<p>Besin değerleri yapay zekâ tarafından tahmin edilir ve yanlış olabilir. Eutrofi tıbbi bir cihaz ya da sağlık hizmeti değildir; uygulamadaki bilgiler tıbbi tavsiye yerine geçmez.</p>
+
+<h2>İzinler</h2>
+<p>Uygulama; fotoğraf çekmek için Kamera, mevcut bir fotoğrafı seçmek için Fotoğraflar, aktif yakılan kaloriyi okumak için Sağlık ve hatırlatmalar için Bildirim izni ister. Hatırlatmalar cihazınızda zamanlanır. Bu izinleri istediğiniz zaman iOS Ayarlar uygulamasından geri alabilirsiniz.</p>
+
+<h2>Saklama süresi ve silme</h2>
+<ul>
+  <li><strong>Cihazdaki ve iCloud'daki kayıtlar:</strong> Profil'deki "Tüm Verileri Sil" seçeneğiyle istediğiniz zaman silebilirsiniz. Aynı bölümden verilerinizin bir kopyasını (CSV ya da JSON) indirebilirsiniz.</li>
+  <li><strong>Günün özeti:</strong> Profil'deki paylaşım anahtarını kapatarak yazılmasını durdurabilirsiniz.</li>
+  <li><strong>Hesabınız ve Firebase'deki verileriniz:</strong> hesabınızın ve ona bağlı tüm verilerin (profil, günün özetleri, arkadaşlıklar, davet kaydı) silinmesi için yukarıdaki e-posta adresine, hesabınıza kayıtlı adresten yazmanız yeterlidir. Talebiniz en geç 30 gün içinde yerine getirilir.</li>
+  <li>Verileriniz, hesabınız açık olduğu sürece saklanır.</li>
+</ul>
+
+<h2>Haklarınız</h2>
+<p>6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında; verilerinizin işlenip işlenmediğini öğrenme, işlenen veriler hakkında bilgi isteme, yanlış ya da eksik verilerin düzeltilmesini ve verilerinizin silinmesini talep etme haklarına sahipsiniz. Bu talepler için yukarıdaki e-posta adresine yazabilirsiniz.</p>
+
+<h2>Çocukların gizliliği</h2>
+<p>Eutrofi çocuklara yönelik değildir ve bilerek 13 yaşın altındaki kullanıcılardan veri toplamaz.</p>
+
+<h2>Değişiklikler</h2>
+<p>Bu politika güncellenirse yeni sürüm bu sayfada yayınlanır ve üstteki tarih değişir.</p>
+
+<h2>İletişim</h2>
+<p>Sorularınız için: <a href="mailto:gorgulu.hakan@gmail.com">gorgulu.hakan@gmail.com</a></p>
+</body>
+</html>
