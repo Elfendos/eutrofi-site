@@ -51,7 +51,7 @@
   <tr>
     <td>Analiz için gönderdiğiniz yemek fotoğrafları, yazılı açıklamalar ve notlar</td>
     <td>Yemeğin tanınması ve besin değerlerinin tahmini</td>
-    <td>Anthropic'in Claude API'sine gönderilir (aşağıya bakın)</td>
+    <td>Eutrofi sunucusu üzerinden Anthropic'in Claude API'sine gönderilir (aşağıya bakın). Sunucuda saklanmaz.</td>
   </tr>
   <tr>
     <td>Haftalık koç özeti için son 7 günün günlük toplamları (kalori, makrolar, hedef) ve en sık yediklerinizin adları — yalnızca Premium'da; fotoğraf gönderilmez</td>
@@ -77,6 +77,11 @@
     <td>Sağlık verisi: Apple Sağlık'taki günlük aktif yakılan kalori (izin verirseniz)</td>
     <td>Yakılan kalorinin günlük hesaba eklenmesi</td>
     <td>Yalnızca cihazınızda kullanılır, hiçbir yere gönderilmez. Uygulama Sağlık'a veri yazmaz.</td>
+  </tr>
+  <tr>
+    <td>Kullanım sayacı ve cihaz kimliği: günlük yapay zekâ analizi sayınız ve uygulamanın cihazınızda ürettiği rastgele bir kimlik</td>
+    <td>Günlük analiz hakkının hesap ve cihaz başına uygulanması, kötüye kullanımın önlenmesi</td>
+    <td>Google Firebase (Cloud Firestore). Kimlik rastgeledir; cihazınızın seri numarası ya da reklam kimliği değildir.</td>
   </tr>
   <tr>
     <td>Abonelik durumu</td>
@@ -116,7 +121,7 @@
 <ul>
   <li><strong>Cihazdaki ve iCloud'daki kayıtlar:</strong> Profil'deki "Tüm Verileri Sil" seçeneğiyle istediğiniz zaman silebilirsiniz. Aynı bölümden verilerinizin bir kopyasını (CSV ya da JSON) indirebilirsiniz.</li>
   <li><strong>Günün özeti:</strong> Profil'deki paylaşım anahtarını kapatarak yazılmasını durdurabilirsiniz.</li>
-  <li><strong>Hesabınız ve Firebase'deki verileriniz:</strong> hesabınızın ve ona bağlı tüm verilerin (profil, günün özetleri, arkadaşlıklar, davet kaydı) silinmesi için yukarıdaki e-posta adresine, hesabınıza kayıtlı adresten yazmanız yeterlidir. Talebiniz en geç 30 gün içinde yerine getirilir.</li>
+  <li><strong>Hesabınız ve Firebase'deki verileriniz:</strong> Profil'in en altındaki "Hesabımı Sil" seçeneği hesabınızı ve ona bağlı tüm verileri (profil, günün özetleri, arkadaşlıklar, davet kaydı) ve cihazınızdaki kayıtları kalıcı olarak siler. Uygulamaya erişemiyorsanız aynı talebi yukarıdaki e-posta adresine, hesabınıza kayıtlı adresten yazarak iletebilirsiniz; talebiniz en geç 30 gün içinde yerine getirilir. Premium aboneliğiniz varsa hesap silmek aboneliği iptal etmez; iOS Ayarlar &gt; Abonelikler bölümünden ayrıca iptal etmeniz gerekir.</li>
   <li>Verileriniz, hesabınız açık olduğu sürece saklanır.</li>
 </ul>
 
